@@ -18,5 +18,5 @@ let isError = false;
  * @param {string} str
  */
 function cleanInputString(str) {
-  const regex = /[+-\s]/;
+  const regex = /[+-\s]/g;
 }
