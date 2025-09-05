@@ -14,6 +14,8 @@ const clearButton = document.getElementById("clear");
 
 const output = document.getElementById("output");
 
+let isError = false;
+
 // todo　この検証をしたいのにできなかった
 // console.log({ calorieCounter });
 // console.log(budgetNumberInput.value);
