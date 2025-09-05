@@ -17,4 +17,6 @@ let isError = false;
  * 文字列を数値に直す処理
  * @param {string} str
  */
-function cleanInputString(str) {}
+function cleanInputString(str) {
+  const regex = /hello/;
+}
