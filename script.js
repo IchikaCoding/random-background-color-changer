@@ -14,9 +14,9 @@ let isError = false;
 // console.log(budgetNumberInput.value);
 
 /**
- * 文字列を数値に直す処理
+ * 文字列を絶対値に直す＆スペースを消す処理
  * @param {string} str
  */
 function cleanInputString(str) {
-  const regex = /\+-/;
+  const regex = /[+-\s]/;
 }
