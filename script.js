@@ -27,5 +27,5 @@ function cleanInputString(str) {
  * @param {string} str
  */
 function isInvalidInput(str) {
-  const regex = /e/i;
+  const regex = /[0-9]e[0-9]/i;
 }
