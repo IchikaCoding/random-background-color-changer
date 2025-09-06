@@ -38,3 +38,5 @@ function isInvalidInput(str) {
  * entryDropdownはイベントリスナーの外側にあるから値を変更しても出力は初期値のまま
  */
 console.log(entryDropdown.value);
+
+console.log("こみやんまさんのコミット生成のやつ試してみる");
