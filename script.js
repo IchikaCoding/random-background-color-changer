@@ -33,3 +33,8 @@ function isInvalidInput(str) {
   const regex = /\d+e\d+/i;
   return str.match(regex);
 }
+
+/** entryDropdownの値（初期値）を出力
+ * entryDropdownはイベントリスナーの外側にあるから値を変更しても出力は初期値のまま
+ */
+console.log(entryDropdown.value);
