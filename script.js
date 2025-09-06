@@ -26,4 +26,6 @@ function cleanInputString(str) {
  * 指数表記を取り除く処理
  * @param {string} str
  */
-function isInvalidInput(str) {}
+function isInvalidInput(str) {
+  const regex = /e/;
+}
