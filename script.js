@@ -22,3 +22,5 @@ function cleanInputString(str) {
   const regex = /[+-\s]/g;
   return str.replace(regex, ""); // スペースや符号を取り除いた文字列を返す
 }
+
+console.log(cleanInputString("+-99")); // "99"
