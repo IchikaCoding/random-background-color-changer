@@ -9,7 +9,7 @@ const addEntryButton = document.getElementById("add-entry");
 const clearButton = document.getElementById("clear");
 const output = document.getElementById("output");
 let isError = false;
-// todo　この検証をしたいのにできなかった
+// TODO この検証をしたいのにできなかった
 // console.log({ calorieCounter });
 // console.log(budgetNumberInput.value);
 
@@ -32,4 +32,11 @@ function cleanInputString(str) {
 function isInvalidInput(str) {
   const regex = /\d+e\d+/i;
   return str.match(regex);
+}
+
+/**
+ * CSSで指定できるように、ValueをIDセレクタにするための処理
+ */
+function addEntry() {
+  const targetId = "#" + entryDropdown.value;
 }
