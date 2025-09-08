@@ -21,3 +21,8 @@ function cleanInputString(str) {
   const regex = /[+-\s]/g;
   return str.replace(regex, ""); // スペースや符号を取り除いた文字列を返す
 }
+
+/**
+ * 指数表記を除外する処理
+ */
+function isInvalidInput(str) {}
