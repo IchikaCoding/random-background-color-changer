@@ -35,8 +35,16 @@ function isInvalidInput(str) {
 }
 
 /**
- * CSSで指定できるように、ValueをIDセレクタにするための処理
+ * ValueをIDセレクタに変更する処理
+ * entryDropdownの各フィールドをIDで指定できる
  */
 function addEntry() {
   const targetId = "#" + entryDropdown.value;
+  /**
+   * targetIdでインプットする場所（.input-container）を指定したい
+   * その指定先をtargetInputContainerにいれる
+   */
+  const targetInputContainer = document.querySelector(
+    targetId + " .input-container"
+  );
 }

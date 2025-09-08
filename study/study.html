@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="classname">✅ マッチ（div かつ .classname）</div>
+    <p class="classname">❌ マッチしない（p は div ではない）</p>
+    <div>❌ マッチしない（.classname がない）</div>
+  </body>
+</html>
+
+<div>
+  <span class="classname">✅ マッチ（div の中の .classname：子孫）</span>
+  <section><em class="classname">✅ マッチ（孫でもOK）</em></section>
+</div>
+
+<section class="classname">
+  ❌ マッチしない（div の外にある .classname）
+</section>
+
+<div>
+  <p class="classname">✅ マッチ（直下の子）</p>
+</div>
+
+<div>
+  <section>
+    <p class="classname">❌ マッチしない（直下ではなく“孫”）</p>
+  </section>
+</div>
+
+<section>
+  <p class="classname">❌ マッチしない（そもそも親が div ではない）</p>
+</section>
