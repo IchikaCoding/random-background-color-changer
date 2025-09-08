@@ -23,23 +23,13 @@ function cleanInputString(str) {
 }
 
 /**
- * 指数表記を除外する処理
  * 指数表記を取り除く処理
  * 数字e数字の並びの文字列を探す
  * iは大文字小文字を区別しないため
  * +は数字が一個以上でも検知できるようにするため
  * @param {string} str
  */
-function isInvalidInput(str) {}
-
 function isInvalidInput(str) {
   const regex = /\d+e\d+/i;
   return str.match(regex);
 }
-
-/** entryDropdownの値（初期値）を出力
- * entryDropdownはイベントリスナーの外側にあるから値を変更しても出力は初期値のまま
- */
-console.log(entryDropdown.value);
-
-console.log("こみやんまさんのコミット生成のやつ試してみる");
