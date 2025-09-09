@@ -45,6 +45,6 @@ function addEntry() {
    * その指定先をtargetInputContainerにいれる
    */
   const targetInputContainer = document.querySelector(
-    targetId + " .input-container"
+    `${targetId} .input-container`
   );
 }
