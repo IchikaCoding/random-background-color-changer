@@ -38,9 +38,17 @@ function isInvalidInput(str) {
  * entryDropdown.valueに＃を追加してIDにする
  * 指定したIDの要素の子要素のinput-containerクラスを指定する
  * その指定先をtargetInputContainerに代入する
+ * `#${entryDropdown.value} .input-container`の塊一つが引数
  */
 function addEntry() {
   const targetInputContainer = document.querySelector(
     `#${entryDropdown.value} .input-container`
   );
+  console.log({ targetInputContainer });
+  /**
+   * entryNumberという配列に、エントリーした順番の番号（インデックス）が代入される
+   */
+  const entryNumber = targetInputContainer.querySelectorAll();
 }
+
+addEntry();
