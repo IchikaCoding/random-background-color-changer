@@ -50,5 +50,3 @@ function addEntry() {
    */
   const entryNumber = targetInputContainer.querySelectorAll();
 }
-
-addEntry();
