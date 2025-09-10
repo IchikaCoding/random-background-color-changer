@@ -37,7 +37,7 @@ function isInvalidInput(str) {
 /**
  * entryDropdown.valueに＃を追加してIDにする
  * 指定したIDの要素の子要素のinput-containerクラスを指定する
- * その指定先をtargetInputContainerに代入する
+ * その指定先をtargetInputContainer（エレメント）に代入する
  * `#${entryDropdown.value} .input-container`の塊一つが引数
  */
 function addEntry() {
