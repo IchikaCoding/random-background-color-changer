@@ -46,7 +46,9 @@ function addEntry() {
   );
   console.log({ targetInputContainer });
   /**
-   * entryNumberという配列に、エントリーした順番の番号（インデックス）が代入される
+   * entryNumberという配列に、エントリーした食べ物の個数が代入される
+   * targetInputContainerには、食材名とカロリーが入っている
    */
-  const entryNumber = targetInputContainer.querySelectorAll();
+  const entryNumber =
+    targetInputContainer.querySelectorAll('input[type="text"]').length;
 }
