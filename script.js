@@ -53,5 +53,7 @@ function addEntry() {
     targetInputContainer.querySelectorAll('input[type="text"]').length;
   // todo このコードの意味を説明できるようにする！
   // const HTMLString = `Entry ${entryNumber} Name`;
-  const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>`;
+  const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+  <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
+  `;
 }
