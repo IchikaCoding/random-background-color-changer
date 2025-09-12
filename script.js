@@ -35,6 +35,7 @@ function isInvalidInput(str) {
 }
 
 /**
+ * 入力欄を追加する関数
  * entryDropdown.valueに＃を追加してIDにする
  * 指定したIDの要素の子要素のinput-containerクラスを指定する
  * その指定先をtargetInputContainer（エレメント）に代入する
@@ -65,4 +66,4 @@ function addEntry() {
   targetInputContainer.innerHTML += HTMLString;
 }
 
-addEntry();
+addEntryButton.addEventListener("click", addEntry);
