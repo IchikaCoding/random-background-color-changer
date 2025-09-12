@@ -51,7 +51,7 @@ function addEntry() {
    * targetInputContainerには、食材名とカロリーが入っている
    */
   const entryNumber =
-    targetInputContainer.querySelectorAll('input[type="text"]').length;
+    targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   console.log({ entryNumber });
   // todo このコードの意味を説明できるようにする！
   /**
