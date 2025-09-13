@@ -53,7 +53,7 @@ function addEntry() {
   const entryNumber =
     targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   console.log({ entryNumber });
-  // todo 直接文字列でHTMLを追加する以外の方法がないのか調べる
+  // todo 直接文字列でHTMLを追加する以外の方法がないのか調べる→creatElementメソッドでHTML要素を作ることができる
   /**
    * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
    */
