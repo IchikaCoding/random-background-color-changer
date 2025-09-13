@@ -63,7 +63,7 @@ function addEntry() {
   <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />
   `;
   console.log({ HTMLString });
-  targetInputContainer.insertAdjacentHTML(); // 2つ目の引数はHTMLStringかと思った！
+  targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); // 2つ目の引数はHTMLStringかと思った！
 }
 
 addEntryButton.addEventListener("click", addEntry);
