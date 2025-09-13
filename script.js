@@ -72,4 +72,6 @@ addEntryButton.addEventListener("click", addEntry);
  * 入力内容をゲットする関数
  * @param {Text} list
  */
-function getCaloriesFromInputs(list) {}
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+}
