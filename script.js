@@ -63,17 +63,20 @@ function addEntry() {
   <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />
   `;
   console.log({ HTMLString });
-  targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); // 2つ目の引数はHTMLStringかと思った！
-}
+  /**新しく入力された食べ物とカロリーを後ろに追加する処理 */
+  targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 
-addEntryButton.addEventListener("click", addEntry);
+  addEntryButton.addEventListener("click", addEntry);
 
-/**
- * 入力内容をゲットする関数
- * @param {Text} list
- */
-function getCaloriesFromInputs(list) {
-  let calories = 0;
-  for (const item of list) {
+  /**
+   * 入力内容をゲットする関数
+   * @param {Text} list
+   * listにはinput要素からクエリセレクタオールで取ってきたNodelistが入る
+   */
+  function getCaloriesFromInputs(list) {
+    let calories = 0;
+    for (const item of list) {
+      const currVal = item.value;
+    }
   }
 }
