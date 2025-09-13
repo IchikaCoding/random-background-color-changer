@@ -53,7 +53,7 @@ function addEntry() {
   const entryNumber =
     targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   console.log({ entryNumber });
-  // todo このコードの意味を説明できるようにする！
+  // todo 直接文字列でHTMLを追加する以外の方法がないのか調べる
   /**
    * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
    */
@@ -74,4 +74,6 @@ addEntryButton.addEventListener("click", addEntry);
  */
 function getCaloriesFromInputs(list) {
   let calories = 0;
+  for (const item of list) {
+  }
 }
