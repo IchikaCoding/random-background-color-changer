@@ -23,10 +23,11 @@ function cleanInputString(str) {
 }
 
 /**
- * 指数表記を取り除く処理
+ * 入力値に指数表記と一致する部分があったらその値を返す処理
  * 数字e数字の並びの文字列を探す
  * iは大文字小文字を区別しないため
  * +は数字が一個以上でも検知できるようにするため
+ * 指数表記がなかったらnullを返す
  * @param {string} str
  */
 function isInvalidInput(str) {
@@ -76,7 +77,13 @@ function addEntry() {
     for (const item of list) {
       const currVal = cleanInputString(item.value);
       // TODO invalidInputMatchの使い方をチェックする
+      /**
+       * 指数表記があったらinvalidInputMatchに代入される
+       */
       const invalidInputMatch = isInvalidInput(currVal);
+      // `invalidInputMatch`がtruthyかどうかを判断するためのif文
+      if (invalidInputMatch) {
+      }
     }
   }
 }
