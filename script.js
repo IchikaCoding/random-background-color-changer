@@ -53,7 +53,7 @@ function addEntry() {
   const entryNumber =
     targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   console.log({ entryNumber });
-  // todo 直接文字列でHTMLを追加する以外の方法がないのか調べる→creatElementメソッドでHTML要素を作ることができる
+  // TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→creatElementメソッドでHTML要素を作ることができる
   /**
    * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
    */
@@ -66,8 +66,6 @@ function addEntry() {
   /**新しく入力された食べ物とカロリーを後ろに追加する処理 */
   targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 
-  addEntryButton.addEventListener("click", addEntry);
-
   /**
    * 入力内容をゲットする関数
    * @param {Text} list
@@ -77,6 +75,10 @@ function addEntry() {
     let calories = 0;
     for (const item of list) {
       const currVal = cleanInputString(item.value);
+      // TODO invalidInputMatchの使い方をチェックする
+      const invalidInputMatch = isInvalidInput(currVal);
     }
   }
 }
+
+addEntryButton.addEventListener("click", addEntry);
