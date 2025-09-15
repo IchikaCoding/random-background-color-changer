@@ -23,8 +23,10 @@ function cleanInputString(str) {
 }
 
 /**
- * 入力値に指数表記と一致する部分があったらその値を返す処理
- * 数字e数字の並びの文字列を探す
+ * 入力値に指数表記と一致する部分があったらその値を配列で返す処理
+ * 配列の中身は文字列となる
+ * 「数字e数字」の並びの文字列を探す
+ * \dは[0-9] と同等
  * iは大文字小文字を区別しないため
  * +は数字が一個以上でも検知できるようにするため
  * 指数表記がなかったらnullを返す
@@ -54,7 +56,7 @@ function addEntry() {
   const entryNumber =
     targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   console.log({ entryNumber });
-  // TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→creatElementメソッドでHTML要素を作ることができる
+  // TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→createElementメソッドでHTML要素を作ることができる
   /**
    * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
    */
@@ -66,26 +68,35 @@ function addEntry() {
   console.log({ HTMLString });
   /**新しく入力された食べ物とカロリーを後ろに追加する処理 */
   targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
+}
 
-  /**
-   * 入力内容をゲットする関数
-   * @param {Text} list
-   * listにはinput要素からクエリセレクタオールで取ってきたNodelistが入る
-   */
-  function getCaloriesFromInputs(list) {
-    let calories = 0;
-    for (const item of list) {
-      const currVal = cleanInputString(item.value);
-      // TODO invalidInputMatchの使い方をチェックする
-      /**
-       * 指数表記があったらinvalidInputMatchに代入される
-       */
-      const invalidInputMatch = isInvalidInput(currVal);
-      // `invalidInputMatch`がtruthyかどうかを判断するためのif文
-      if (invalidInputMatch) {
-      }
+/**
+ * 入力内容をゲットする関数
+ * @param {Text} list
+ * listにはinput要素からクエリセレクタオールで取ってきたNodelistが入る
+ */
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+  for (const item of list) {
+    const currVal = cleanInputString(item.value);
+    // TODO invalidInputMatchの使い方をチェックする
+    /**
+     * 指数表記があったらinvalidInputMatchに代入される
+     */
+    const invalidInputMatch = isInvalidInput(currVal);
+
+    // `invalidInputMatch`がtruthyかどうかを判断するためのif文
+    if (invalidInputMatch) {
+      alert(`Invalid Input: ${invalidInputMatch[0]}`);
     }
+    console.log(invalidInputMatch);
   }
 }
+
+getCaloriesFromInputs([
+  { value: "+1e2" },
+  { value: "+3e2" },
+  { value: "+4e1" },
+]);
 
 addEntryButton.addEventListener("click", addEntry);
