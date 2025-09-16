@@ -72,7 +72,11 @@ function addEntry() {
 
 // TODO どうしてgetCaloriesFromInput関数の前に書くの？
 /**  */
-function calculateCalories(e) {}
+function calculateCalories(e) {
+  e.preventDefault();
+  isError = false;
+  console.log(e);
+}
 
 /**
  * 入力内容をゲットする関数
@@ -104,3 +108,5 @@ function getCaloriesFromInputs(list) {
 getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
 
 addEntryButton.addEventListener("click", addEntry);
+
+calorieCounter.addEventListener("submit", calculateCalories);
