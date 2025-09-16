@@ -88,15 +88,13 @@ function getCaloriesFromInputs(list) {
     // `invalidInputMatch`がtruthyかどうかを判断するためのif文
     if (invalidInputMatch) {
       alert(`Invalid Input: ${invalidInputMatch[0]}`);
+      isError = true; // これをやるメリットは？
+      return null; // これをやる理由は？
     }
     console.log(invalidInputMatch);
   }
 }
 
-getCaloriesFromInputs([
-  { value: "+1e2" },
-  { value: "+3e2" },
-  { value: "+4e1" },
-]);
+getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
 
 addEntryButton.addEventListener("click", addEntry);
