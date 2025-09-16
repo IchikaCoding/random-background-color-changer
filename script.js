@@ -84,6 +84,7 @@ function getCaloriesFromInputs(list) {
      * 指数表記があったらinvalidInputMatchに代入される
      */
     const invalidInputMatch = isInvalidInput(currVal);
+    console.log(invalidInputMatch);
 
     // `invalidInputMatch`がtruthyかどうかを判断するためのif文
     if (invalidInputMatch) {
@@ -92,7 +93,7 @@ function getCaloriesFromInputs(list) {
       return null; // これをやる理由は？
     }
     calories += Number(currVal);
-    console.log(invalidInputMatch);
+    return calories;
   }
 }
 
