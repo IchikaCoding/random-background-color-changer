@@ -70,6 +70,10 @@ function addEntry() {
   targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 }
 
+// TODO どうしてgetCaloriesFromInput関数の前に書くの？
+/**  */
+function calculateCalories(e) {}
+
 /**
  * 入力内容をゲットする関数
  * @param {Text} list
