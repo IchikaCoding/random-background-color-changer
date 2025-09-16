@@ -91,6 +91,7 @@ function getCaloriesFromInputs(list) {
       isError = true; // これをやるメリットは？
       return null; // これをやる理由は？
     }
+    calories += Number(currVal);
     console.log(invalidInputMatch);
   }
 }
