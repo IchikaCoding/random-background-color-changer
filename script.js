@@ -7,6 +7,7 @@ const budgetNumberInput = document.getElementById("budget");
 const entryDropdown = document.getElementById("entry-dropdown");
 const addEntryButton = document.getElementById("add-entry");
 const clearButton = document.getElementById("clear");
+const btn1 = document.getElementById("btn1");
 const output = document.getElementById("output");
 let isError = false;
 // TODO この検証をしたいのにできなかった
@@ -110,3 +111,10 @@ getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
 addEntryButton.addEventListener("click", addEntry);
 
 calorieCounter.addEventListener("submit", calculateCalories);
+
+function callFunction(ev) {
+  console.log(ev);
+}
+
+btn1.addEventListener("click", callFunction);
+btn1.addEventListener("click", callFunction);
