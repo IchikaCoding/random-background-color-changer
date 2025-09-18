@@ -112,9 +112,9 @@ addEntryButton.addEventListener("click", addEntry);
 
 calorieCounter.addEventListener("submit", calculateCalories);
 
-function callFunction(ev) {
-  console.log(ev);
-}
+// function callFunction(ev) {
+//   console.log(ev);
+// }
 
-btn1.addEventListener("click", callFunction);
-btn1.addEventListener("click", callFunction);
+// btn1.addEventListener("click", callFunction);
+// btn1.addEventListener("click", callFunction);
