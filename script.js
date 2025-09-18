@@ -96,7 +96,11 @@ function calculateCalories(e) {
   const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
   const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
   const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
-  console.log(e);
+  /**
+   * Budgetは計算する必要はあるのか？
+   */
+  const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+  console.log(budgetNumberInput.value);
 }
 
 /**
@@ -122,11 +126,11 @@ function getCaloriesFromInputs(list) {
       return null; // これをやる理由は？
     }
     calories += Number(currVal);
-    return calories;
   }
+  return calories;
 }
 
-getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
+// getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
 
 addEntryButton.addEventListener("click", addEntry);
 
