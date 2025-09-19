@@ -101,7 +101,7 @@ function calculateCalories(e) {
    */
   const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
   console.log(budgetNumberInput.value);
-  if (isError === true) {
+  if (isError) {
     return;
   }
 }
