@@ -101,9 +101,12 @@ function calculateCalories(e) {
    */
   const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
   console.log(budgetNumberInput.value);
+  // TODO どうしてisErrorはここで判定するの？宣言する前で良くないか？
   if (isError) {
     return;
   }
+  const consumedCalories =
+    breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
 }
 
 /**
