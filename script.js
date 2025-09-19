@@ -105,8 +105,11 @@ function calculateCalories(e) {
   if (isError) {
     return;
   }
+  /** 摂取カロリー */
   const consumedCalories =
     breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+  const remainingCalories =
+    budgetCalories - consumedCalories + exerciseCalories;
 }
 
 /**
