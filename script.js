@@ -116,7 +116,10 @@ function calculateCalories(e) {
   )} Calorie ${surplusOrDeficit}</span>
   <hr>
   <p>${budgetCalories} Calories Budgeted</p>
-  <hr>`;
+  <hr>
+  <p>${consumedCalories} Calories Consumed</p>
+  <p>${exerciseCalories} Calories Burned</p>
+  `;
 }
 
 /**
