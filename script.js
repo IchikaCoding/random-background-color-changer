@@ -152,12 +152,17 @@ function getCaloriesFromInputs(list) {
 
 /** inputContainersにはNodeListが入る
  * div.input-containerが5つNodeListに入る
+ * NodeListを配列に変換してinputContainersに代入
  */
 function clearForm() {
   const inputContainers = Array.from(
     document.querySelectorAll(".input-container")
   );
-  console.log(inputContainers);
+  /** div.input-container要素を削除するためのループ処理 */
+  for (const container of inputContainers) {
+    container.innerHTML = "";
+  }
+  // console.log(inputContainers);
 }
 
 // getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
