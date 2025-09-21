@@ -150,12 +150,21 @@ function getCaloriesFromInputs(list) {
   return calories;
 }
 
+/** inputContainersにはNodeListが入る
+ * div.input-containerが5つNodeListに入る
+ */
+function clearForm() {
+  const inputContainers = document.querySelectorAll(".input-container");
+  console.log(inputContainers);
+}
+
 // getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
 
 addEntryButton.addEventListener("click", addEntry);
 
 calorieCounter.addEventListener("submit", calculateCalories);
 
+clearButton.addEventListener("click", clearForm);
 // function callFunction(ev) {
 //   console.log(ev);
 // }
