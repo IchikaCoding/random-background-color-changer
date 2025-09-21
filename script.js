@@ -154,7 +154,9 @@ function getCaloriesFromInputs(list) {
  * div.input-containerが5つNodeListに入る
  */
 function clearForm() {
-  const inputContainers = document.querySelectorAll(".input-container");
+  const inputContainers = Array.from(
+    document.querySelectorAll(".input-container")
+  );
   console.log(inputContainers);
 }
 
