@@ -164,6 +164,7 @@ function clearForm() {
   }
   budgetNumberInput.value = "";
   output.innerText = "";
+  output.classList.add("hide");
 
   // console.log(inputContainers);
 }
