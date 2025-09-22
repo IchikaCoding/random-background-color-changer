@@ -163,6 +163,8 @@ function clearForm() {
     container.innerHTML = "";
   }
   budgetNumberInput.value = "";
+  output.innerText = "";
+
   // console.log(inputContainers);
 }
 
