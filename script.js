@@ -10,6 +10,12 @@ const clearButton = document.getElementById("clear");
 const btn1 = document.getElementById("btn1");
 const output = document.getElementById("output");
 let isError = false;
+// TODO 摂取と消費ごとにクラス名を付与
+document.getElementById("breakfast").classList.add("consumed");
+document.getElementById("lunch").classList.add("consumed");
+document.getElementById("dinner").classList.add("consumed");
+document.getElementById("snacks").classList.add("consumed");
+document.getElementById("exercise").classList.add("burned");
 // TODO この検証をしたいのにできなかった
 // console.log({ calorieCounter });
 // console.log(budgetNumberInput.value);
@@ -76,26 +82,34 @@ function addEntry() {
 function calculateCalories(e) {
   e.preventDefault();
   isError = false;
-  const breakfastNumberInputs = document.querySelectorAll(
-    "#breakfast input[type='number']"
+  const consumedNumberInputs = document.querySelectorAll(
+    ".consumed input[type='number']"
   );
-  const lunchNumberInputs = document.querySelectorAll(
-    "#lunch input[type='number']"
+  const burnedNumberInputs = document.querySelectorAll(
+    ".burned input[type='number']"
   );
-  const dinnerNumberInputs = document.querySelectorAll(
-    "#dinner input[type='number']"
-  );
-  const snacksNumberInputs = document.querySelectorAll(
-    "#snacks input[type='number']"
-  );
-  const exerciseNumberInputs = document.querySelectorAll(
-    "#exercise input[type='number']"
-  );
-  const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
-  const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
-  const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
-  const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
-  const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+  const consumedCalories = getCaloriesFromInputs(consumedNumberInputs);
+  const burnCalories = getCaloriesFromInputs(burnedNumberInputs);
+  // const breakfastNumberInputs = document.querySelectorAll(
+  //   "#breakfast input[type='number']"
+  // );
+  // const lunchNumberInputs = document.querySelectorAll(
+  //   "#lunch input[type='number']"
+  // );
+  // const dinnerNumberInputs = document.querySelectorAll(
+  //   "#dinner input[type='number']"
+  // );
+  // const snacksNumberInputs = document.querySelectorAll(
+  //   "#snacks input[type='number']"
+  // );
+  // const exerciseNumberInputs = document.querySelectorAll(
+  //   "#exercise input[type='number']"
+  // );
+  // const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+  // const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+  // const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+  // const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
+  // const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
   /**
    * Budgetは計算する必要はあるのか？
    */
@@ -106,10 +120,9 @@ function calculateCalories(e) {
     return;
   }
   /** 摂取カロリー */
-  const consumedCalories =
-    breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
-  const remainingCalories =
-    budgetCalories - consumedCalories + exerciseCalories;
+  // const consumedCalories =
+  //   breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+  const remainingCalories = budgetCalories - consumedCalories + burnCalories;
   const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
   output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(
     remainingCalories
@@ -118,7 +131,7 @@ function calculateCalories(e) {
   <p>${budgetCalories} Calories Budgeted</p>
   <hr>
   <p>${consumedCalories} Calories Consumed</p>
-  <p>${exerciseCalories} Calories Burned</p>
+  <p>${burnCalories} Calories Burned</p>
   `;
   output.classList.remove("hide");
 }
