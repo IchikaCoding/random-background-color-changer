@@ -18,7 +18,7 @@ document.getElementById("snacks").classList.add("consumed");
 document.getElementById("exercise").classList.add("burned");
 // TODO この検証をしたいのにできなかった
 // console.log({ calorieCounter });
-// console.log(budgetNumberInput.value);
+console.log(budgetNumberInput.value);
 
 /**
  * 文字列を絶対値に直す＆スペースを消す処理
@@ -77,10 +77,35 @@ function addEntry() {
   targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 }
 
-// TODO どうしてgetCaloriesFromInput関数の前に書くの？
-/**  */
+/**
+ * 入力内容の無効・有効を判定してカロリ－を返す関数
+ * @param {Text} list
+ * listにはinput要素からクエリセレクタオールで取ってきたNodelistが入る
+ */
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+  for (const item of list) {
+    const currVal = cleanInputString(item.value);
+    // TODO invalidInputMatchの使い方をチェックする
+    /**
+     * 指数表記があったらinvalidInputMatchに代入される
+     */
+    const invalidInputMatch = isInvalidInput(currVal);
+    console.log(invalidInputMatch);
+
+    // `invalidInputMatch`がtruthyかどうかを判断するためのif文
+    if (invalidInputMatch) {
+      alert(`Invalid Input: ${invalidInputMatch[0]}`);
+      isError = true; // これでcalculateCalories関数のときにエラーで早期リターンができるようにしている
+      return null; // これをやる理由は値がない事を明示するため
+    }
+    calories += Number(currVal);
+  }
+  return calories;
+}
+// TODO getCaloriesFromInput関数の後に書くほうが良い
 function calculateCalories(e) {
-  e.preventDefault();
+  e.preventDefault(); // リロードを防いで入力内容を保持するため
   isError = false;
   const consumedNumberInputs = document.querySelectorAll(
     ".consumed input[type='number']"
@@ -117,7 +142,7 @@ function calculateCalories(e) {
   console.log(budgetNumberInput.value);
   // TODO どうしてisErrorはここで判定するの？宣言する前で良くないか？
   if (isError) {
-    return;
+    return; // 早期リターン
   }
   /** 摂取カロリー */
   // const consumedCalories =
@@ -134,33 +159,6 @@ function calculateCalories(e) {
   <p>${burnCalories} Calories Burned</p>
   `;
   output.classList.remove("hide");
-}
-
-/**
- * 入力内容をゲットする関数
- * @param {Text} list
- * listにはinput要素からクエリセレクタオールで取ってきたNodelistが入る
- */
-function getCaloriesFromInputs(list) {
-  let calories = 0;
-  for (const item of list) {
-    const currVal = cleanInputString(item.value);
-    // TODO invalidInputMatchの使い方をチェックする
-    /**
-     * 指数表記があったらinvalidInputMatchに代入される
-     */
-    const invalidInputMatch = isInvalidInput(currVal);
-    console.log(invalidInputMatch);
-
-    // `invalidInputMatch`がtruthyかどうかを判断するためのif文
-    if (invalidInputMatch) {
-      alert(`Invalid Input: ${invalidInputMatch[0]}`);
-      isError = true; // これをやるメリットは？
-      return null; // これをやる理由は？
-    }
-    calories += Number(currVal);
-  }
-  return calories;
 }
 
 /** inputContainersにはNodeListが入る
