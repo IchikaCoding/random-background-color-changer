@@ -7,18 +7,29 @@
     <title>Calorie Counter</title>
   </head>
   <body>
-    <div>
+    <div id="entry-modal" class="modal-overlay hide">
       <!-- ダイアログを表示するdiv -->
-      <div>
-        <label for="modal-entry-name"
-          ><input type="text" id="modal-entry-name" />
-        </label>
-        <label for="modal-entry-calorie"
-          ><input type="number" id="modal-entry-calorie"
-        /></label>
+      <div class="modal-container">
+        <h2 id="modal-header">新規作成</h2>
+        <label for="modal-entry-name">名前：</label
+        ><input
+          type="text"
+          id="modal-entry-name"
+          placeholder="Food name or exercise"
+        />
+
+        <label for="modal-entry-calorie">カロリー：</label
+        ><input
+          type="number"
+          id="modal-entry-calorie"
+          min="0"
+          placeholder="Calories"
+        />
         <!-- ボタンたちのdiv -->
-        <button>追加</button>
-        <button>キャンセル</button>
+        <div class="modal-button-wrapper">
+          <button id="modal-add-or-update-btn">追加</button>
+          <button id="modal-cancel-btn">キャンセル</button>
+        </div>
       </div>
     </div>
     <main>

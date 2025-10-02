@@ -10,6 +10,15 @@ const clearButton = document.getElementById("clear");
 const btn1 = document.getElementById("btn1");
 const output = document.getElementById("output");
 let isError = false;
+
+/** ーーここからモーダル用ーー */
+const entryModal = document.getElementById("entry-modal");
+const modalAddBtn = document.getElementById("modal-add-or-update-btn");
+const modalCancelBtn = document.getElementById("modal-cancel-btn");
+const modalEntryName = document.getElementById("modal-entry-name");
+const modalEntryCalorie = document.getElementById("modal-entry-calorie");
+/** ーーここまでーー */
+
 // TODO 摂取と消費ごとにクラス名を付与
 document.getElementById("breakfast").classList.add("consumed");
 document.getElementById("lunch").classList.add("consumed");
@@ -99,10 +108,29 @@ function getCaloriesFromInputs(list) {
       isError = true; // これでcalculateCalories関数のときにエラーで早期リターンができるようにしている
       return null; // これをやる理由は値がない事を明示するため
     }
+    /** 文字列currValをNumber関数で数値に戻して計算する */
     calories += Number(currVal);
   }
   return calories;
 }
+/** ここからモーダルのエントリー画面 */
+function showEntryModal() {
+  entryModal.classList.remove("hide");
+}
+
+function hideEntryModal() {
+  entryModal.classList.add("hide");
+}
+function addEntryForModal() {
+  console.log(modalEntryName.value);
+  console.log(modalEntryCalorie.value);
+  // const foodName = document.querySelectorAll(
+  //   "#modal-entry-name input[type='text']"
+  // );
+}
+
+modalAddBtn.addEventListener("click", addEntryForModal);
+
 // TODO getCaloriesFromInput関数の後に書くほうが良い
 function calculateCalories(e) {
   e.preventDefault(); // リロードを防いで入力内容を保持するため
@@ -182,7 +210,9 @@ function clearForm() {
 
 // getCaloriesFromInputs([{ value: "100" }, { value: "300" }, { value: "1e2" }]);
 
-addEntryButton.addEventListener("click", addEntry);
+// addEntryButton.addEventListener("click", addEntry);
+addEntryButton.addEventListener("click", showEntryModal);
+modalCancelBtn.addEventListener("click", hideEntryModal);
 
 calorieCounter.addEventListener("submit", calculateCalories);
 
