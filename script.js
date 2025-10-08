@@ -68,19 +68,23 @@ function addEntry() {
   /**
    * entryNumberという配列に、エントリーした食べ物の個数が代入される
    * targetInputContainerには、食材名とカロリーが入っている
+   * 1個目の入力のときは，まだtargetInputContainerに追加されていない→長さに+ 1をする！
    */
   const entryNumber =
     targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   console.log({ entryNumber });
   // TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→createElementメソッドでHTML要素を作ることができる
+
+  const HTMLString = `<span data-type=></span>`;
+
   /**
    * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
    */
-  const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
-  <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
-  <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
-  <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />
-  `;
+  // const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+  // <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
+  // <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
+  // <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />
+  // `;
   console.log({ HTMLString });
   /**新しく入力された食べ物とカロリーを後ろに追加する処理 */
   targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
@@ -121,6 +125,10 @@ function showEntryModal() {
 function hideEntryModal() {
   entryModal.classList.add("hide");
 }
+/**
+ * span要素をinnerHTMLで追加→入力結果が画面に表示される
+ * appendChildで追加
+ */
 function addEntryForModal() {
   console.log(modalEntryName.value);
   console.log(modalEntryCalorie.value);
