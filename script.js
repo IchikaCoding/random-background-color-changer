@@ -60,35 +60,35 @@ function isInvalidInput(str) {
  * その指定先をtargetInputContainer（エレメント）に代入する
  * `#${entryDropdown.value} .input-container`の塊一つが引数
  */
-function addEntry() {
-  const targetInputContainer = document.querySelector(
-    `#${entryDropdown.value} .input-container`
-  );
-  console.log({ targetInputContainer });
-  /**
-   * entryNumberという配列に、エントリーした食べ物の個数が代入される
-   * targetInputContainerには、食材名とカロリーが入っている
-   * 1個目の入力のときは，まだtargetInputContainerに追加されていない→長さに+ 1をする！
-   */
-  const entryNumber =
-    targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
-  console.log({ entryNumber });
-  // TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→createElementメソッドでHTML要素を作ることができる
+// function addEntry() {
+//   const targetInputContainer = document.querySelector(
+//     `#${entryDropdown.value} .input-container`
+//   );
+//   console.log({ targetInputContainer });
+//   /**
+//    * entryNumberという配列に、エントリーした食べ物の個数が代入される
+//    * targetInputContainerには、食材名とカロリーが入っている
+//    * 1個目の入力のときは，まだtargetInputContainerに追加されていない→長さに+ 1をする！
+//    */
+//   const entryNumber =
+//     targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+//   console.log({ entryNumber });
+// TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→createElementメソッドでHTML要素を作ることができる
 
-  const HTMLString = `<span data-type=></span>`;
+// const HTMLString = `<span data-type=></span>`;
 
-  /**
-   * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
-   */
-  // const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
-  // <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
-  // <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
-  // <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />
-  // `;
-  console.log({ HTMLString });
-  /**新しく入力された食べ物とカロリーを後ろに追加する処理 */
-  targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
-}
+/**
+ * HTMLStringは，addEntry関数が実行されたらdivタグのinput-containerクラスのなかに入る
+ */
+// const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+// <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
+// <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
+// <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories" />
+// `;
+console.log({ HTMLString });
+// TODO createElementでできるか考える
+/**新しく入力された食べ物とカロリーを後ろに追加する処理 */
+// targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 
 /**
  * 入力内容の無効・有効を判定してカロリ－を返す関数
@@ -129,7 +129,30 @@ function hideEntryModal() {
  * span要素をinnerHTMLで追加→入力結果が画面に表示される
  * appendChildで追加
  */
+// TODO 2025-10-09やるところ
 function addEntryForModal() {
+  const targetInputContainer = document.querySelector(
+    `#${entryDropdown.value} .input-container`
+  );
+  console.log({ targetInputContainer });
+  /**
+   * entryNumberという配列に、エントリーした食べ物の個数が代入される
+   * targetInputContainerには、食材名とカロリーが入っている
+   * 1個目の入力のときは，まだtargetInputContainerに追加されていない→長さに+ 1をする！
+   */
+  const entryNumber =
+    targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  console.log({ entryNumber });
+
+  // TODO 直接文字列でHTMLを追加する以外の方法がないのか調べる→createElementメソッドでHTML要素を作ることができる
+  // 2025-10-08ここ👇️
+  const entryType = entryDropdown.value === "exercise" ? "burned" : "consumed";
+
+  // const nameValue =
+
+  const entryHTML = `<span class="entryHtml" data-type="${entryType}" data-name="${nameValue}" data-calorie="${calorieValue}">${nameValue}: ${calorieValue} Calories</span>`;
+
+  targetInputContainer.insertAdjacentHTML("beforeend", entryHTML);
   console.log(modalEntryName.value);
   console.log(modalEntryCalorie.value);
   // const foodName = document.querySelectorAll(
